@@ -1,0 +1,247 @@
+/* Makes the divider positions animatable */
+@property --b1 {
+    syntax: '<number>';
+    inherits: true;
+    initial-value: 40;
+}
+
+@property --b2 {
+    syntax: '<number>';
+    inherits: true;
+    initial-value: 80;
+}
+
+@property --b3 {
+    syntax: '<number>';
+    inherits: true;
+    initial-value: 120;
+}
+
+@property --b4 {
+    syntax: '<number>';
+    inherits: true;
+    initial-value: 160;
+}
+
+html,
+body {
+    margin: 0;
+}
+
+.menu {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: #000;
+
+    --b1: 40;
+    --b2: 80;
+    --b3: 120;
+    --b4: 160;
+    /* resting state */
+    transition: --b1 .6s ease, --b2 .6s ease, --b3 .6s ease, --b4 .6s ease;
+    
+}
+
+.mol {
+    position: absolute;
+    left: 0%;
+    top: 125%;
+    width: 1000px;
+    height: 100px;
+    transform: translate(-50%, -50%);
+    rotate: 45deg;
+    background-color: darkblue;
+
+    display: flex;
+    pointer-events: none;
+}
+
+/* Hovered image gets 120 of the 200 units, the others 20 each */
+.menu:has(.menuImage1:hover) {
+    --b1: 120;
+    --b2: 140;
+    --b3: 160;
+    --b4: 180;
+    
+}
+
+.menu:has(.menuImage2:hover) {
+    --b1: 20;
+    --b2: 140;
+    --b3: 160;
+    --b4: 180;
+    background-image: linear-gradient(to top right, #2CB2BA, #167E9E);
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.menu:has(.menuImage3:hover) {
+    --b1: 20;
+    --b2: 40;
+    --b3: 160;
+    --b4: 180;
+    background-image: linear-gradient(to top right, #2CB2BA, #004981);
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.menu:has(.menuImage4:hover) {
+    --b1: 20;
+    --b2: 40;
+    --b3: 60;
+    --b4: 180;
+    background-image: linear-gradient(to top right, #2CB2BA, #463F6E);
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.menu:has(.menuImage5:hover) {
+    --b1: 20;
+    --b2: 40;
+    --b3: 60;
+    --b4: 80;
+    background-image: linear-gradient(to top right, #2CB2BA, #86365C);
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.menu:has(.menuImage1:hover) .mol {
+    animation: imgBarHover 0.3s;
+}
+
+.menu:has(.menuImage2:hover) .mol {
+    animation: imgBarHover2 0.3s;
+}
+
+.menu:has(.menuImage3:hover) .mol {
+    animation: imgBarHover3 0.3s;
+}
+
+.menu:has(.menuImage4:hover) .mol {
+    animation: imgBarHover4 0.3s;
+}
+
+.menu:has(.menuImage5:hover) .mol {
+    animation: imgBarHover5 0.3s;
+}
+
+
+
+@keyframes imgBarHover {
+    from {
+        rotate: 0deg;
+    }
+    to {
+        rotate: 360deg;
+    }
+}
+
+@keyframes imgBarHover2 {
+    from {
+            rotate: 0deg;
+        }
+    
+        to {
+            rotate: 360deg;
+        }
+}
+@keyframes imgBarHover3 {
+    from {
+        rotate: 0deg;
+    }
+
+    to {
+        rotate: 360deg;
+    }
+}
+@keyframes imgBarHover4 {
+    from {
+        rotate: 0deg;
+    }
+
+    to {
+        rotate: 360deg;
+    }
+}
+@keyframes imgBarHover5 {
+    from {
+        rotate: 0deg;
+    }
+
+    to {
+        rotate: 360deg;
+    }
+}
+.menuImage {
+    position: absolute;
+    inset: 0;
+
+    /* corner vertex is only "used" if the corner lies between p1 and p2 */
+    --pc: clamp(var(--p1), 100, var(--p2));
+
+    clip-path: polygon(0% 100%,
+            min(calc(var(--p1) * 1%), 100%) max(calc(var(--p1) * 1% - 100%), 0%),
+            min(calc(var(--pc) * 1%), 100%) max(calc(var(--pc) * 1% - 100%), 0%),
+            min(calc(var(--p2) * 1%), 100%) max(calc(var(--p2) * 1% - 100%), 0%));
+}
+
+.menuImage img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Each image sits between two dividers */
+.menuImage1 {
+    --p1: 0;
+    --p2: var(--b1);
+    background-color: #2CB2BA;
+}
+
+.menuImage2 {
+    --p1: var(--b1);
+    --p2: var(--b2);
+    background-color: #167E9E;
+}
+
+.menuImage3 {
+    --p1: var(--b2);
+    --p2: var(--b3);
+    background-color: #004981;
+}
+
+.menuImage4 {
+    --p1: var(--b3);
+    --p2: var(--b4);
+    background-color: #463F6E;
+}
+
+.menuImage5 {
+    --p1: var(--b4);
+    --p2: 200;
+    background-color: #86365C;
+}
+
+.menuImage1:hover {
+    background-image: linear-gradient(to bottom left, 0%, #2CB2BA, 70%, #2CB2BA);
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.menuImage2:hover {
+    background-image: linear-gradient(to bottom left, #2CB2BA, #167E9E);
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.menuImage3:hover {
+    background-image: linear-gradient(to bottom left, #2CB2BA, #004981);
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.menuImage4:hover {
+    background-image: linear-gradient(to bottom left, #2CB2BA, #463F6E);
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.menuImage5:hover {
+    background-image: linear-gradient(to bottom left, 0%, #2CB2BA, 70%, #86365C);
+    background-color: rgba(0, 0, 0, 0);
+}

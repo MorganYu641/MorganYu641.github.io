@@ -1,0 +1,49 @@
+.sideDescriptiveText {
+    display: flex;
+    justify-self: right;
+    position: absolute;
+    right: 5%;
+
+    width: 43%;
+    height: 300px;
+    background-color: #F5E5ED;
+
+    border-color: #86365C;
+    border-radius: 5px;
+    border: 5px;
+}
+
+.sideDescriptiveHeader {
+    text-align: right;
+    color: #86365C;
+    margin: 5%;
+}
+
+.sideDescriptiveTextp {
+    color: #CA2FC7;
+    text-align: Left;
+    margin: 5px;
+}
+
+.sideDescriptiveTextBKG {
+    display: flex;
+    justify-self: right;
+    position: absolute;
+    right: 5%;
+
+    width: 43%;
+    height: 300px;
+    background-color: #86365C;
+}
+
+.autoPicofMe {
+    width: 43%;
+    max-width: 43%;
+
+    display: flex;
+    justify-self: left;
+    position: absolute;
+    left: 5%;
+
+    border-radius: 5px;
+}

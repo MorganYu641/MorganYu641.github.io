@@ -1,0 +1,31 @@
+.scrollingContainer {
+    background-color: #F5E5ED;
+    color: #86365c;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.scrollingContainerContents, .scrollingContainerContentsOverflow{
+    min-width: 100%;
+    flex-shrink: 0;
+}
+
+.scrollingContainerContents {
+    animation: scrollLeft 30s infinite linear;
+}
+
+.scrollingContainerContentsOverflow{
+    animation: scrollLeftOverflow 30s infinite linear;
+}
+
+@keyframes scrollLeftOverflow {
+    0%  {transform: translateX(-200%);}
+    100%{transform: translateX(-100%);}
+}
+
+@keyframes scrollLeft {
+    0%  {transform: translateX(0%);}
+    100%{transform: translateX(100%);}
+}

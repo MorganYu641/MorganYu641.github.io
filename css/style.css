@@ -1,0 +1,45 @@
+.loremIpsum {
+    background-color: #86365C;
+    color: black;
+}
+
+p {
+    color: #CA2FC7;
+}
+
+button {
+    background-color: #f0f0f0;
+    color: #86365C;
+    text-align: center;
+    display: inline;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+    transition-duration: 75ms;
+}
+
+button:hover {
+    background-color: #CA2FC7;
+    color: #f0f0f0;
+    box-shadow: none;
+    transition-duration: 150ms;
+}
+
+h1 {
+    padding: 15px 15px;
+    color: #86365C;
+    text-align: center;
+    clip-path: polygon(0% 100%, 10% 0%, 100% 0%, 90% 100%);
+}
+
+.header {
+    background: #F5E5ED;
+    clip-path: polygon(0% 100%, 10% 0%, 100% 0%, 90% 100%);
+}
+
+body {
+    cursor: crosshair;
+    background: #2C111E;
+}
+
+br {
+    scroll-snap-type: y mandatory;
+}

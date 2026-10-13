@@ -1,0 +1,24 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    background: #F5E5ED;
+    color: #86365C;
+    padding: 5px 20px;
+    font-size: auto;
+    z-index: 1000;
+    border-radius: 999px;
+    top: 5px;
+    width: 100%;
+    align-self:center;
+    box-sizing: border-box;
+}
+
+.sliderPercent {
+    min-width: 3ch;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-size: 30px;
+    transform: translate(-55px, 8px);
+    align-self: right;
+}

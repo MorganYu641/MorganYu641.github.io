@@ -1,0 +1,62 @@
+.menu {
+  width: 100vw;
+  height: 100vh;
+  left: 100%;
+}
+
+.menuImage {
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    left: 10%;
+    right: 10%;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 10%, 0% 10%);
+}
+
+.menuImage2 {
+    top: 13%;
+}
+
+.menuImage3 {
+    top: 24%;
+}
+
+.menuImage:hover {
+    animation-name: fullscreen;
+    animation-duration: .5s;
+    border-bottom: 0%;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.menuImage:not(:hover) {
+    animation-name: unFullscreen;
+    animation-duration: .5s;
+    border-bottom: -90%;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes fullscreen {
+    from {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 10%, 0% 10%);
+        border-bottom: -90%;
+    }
+    to {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+        border-bottom: 10%;
+    }
+}
+
+@keyframes unFullscreen {
+    from {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+        border-bottom: 10%;
+    }
+    to {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 10%, 0% 10%);
+        border-bottom: -90%;
+    }
+}
