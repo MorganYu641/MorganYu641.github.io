@@ -3,32 +3,83 @@
     <head>
         <title>Another wander in the night...</title>
         <link rel="stylesheet" href="css/aboutMe.css" >
-        <link rel="stylesheet" href="css/style.css" >
+        <link rel="stylesheet" href="css/navbar.css"  >
+        <link rel="stylesheet" href="css/dropdown.css">
     </head>
+    <script>
+        // Show the navbar while the cursor is in the top 10% of the window
+        document.addEventListener('mousemove', (e) => {
+            document.body.classList.toggle('navVisible', e.clientY < window.innerHeight * 0.1);
+        });
+    </script>
     <body>
+        <div class="navbar autoHide">
+            <button class="leftNavbar"> Left </button>
+            <button><a href="main.html"> About me </a></button>
+            <div class="dropdown">
+                <button> Defense of Learning </button>
+                <button class="dropbtn">&#8744;</button>
+                <div class="dropdown-content">
+                    <a href="#">DoL 1</a>
+                    <a href="#">DoL 2</a>
+                    <a href="#">DoL 3</a>
+                    <a href="#">DoL 4</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button><a href="aboutMe.html"> Projects </a></button>
+            </div>
+            <button class="rightNavbar"> Right </button>
+        </div>
         <div class="menu">
-            
             <div class="menuImage menuImage1">
-                
+                <h1>Taekwondo</h1>
+                <p>
+                    I'm a black belt in TKD! :)
+                </p>
             </div>
             <div class="menuImage menuImage2">
-                
+                <h1>Scouts</h1>
+                <p>
+                    I'm an Eagle Scout! :)
+                </p>
             </div>
             <div class="menuImage menuImage3">
-                
+                <h1>Beechwood Robotics Team</h1>
+                <p>
+                    I'm a co-founder! :)
+                </p>
             </div>
             <div class="menuImage menuImage4">
-                
+                <h1>menu slice 4</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut urna ac neque euismod venenatis ut nec est. Nulla vel
+                    imperdiet ex, et luctus lorem. Nunc sodales, nisl at pellentesque rhoncus, massa nunc bibendum lorem, et interdum mi
+                    justo a lorem. Nunc pretium lacus lacinia mi interdum, et ultricies est laoreet. Nulla viverra erat pellentesque maximus
+                    gravida. Praesent in purus lacus. Mauris id rutrum magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+                    pulvinar lobortis laoreet. Vivamus quis libero quis justo ornare commodo. Praesent suscipit urna tellus, a rhoncus urna
+                    tempor sit amet. Sed gravida nisi a ante tempor mollis. Fusce at varius sapien. Aenean mauris nunc, tristique nec metus
+                    a, consequat bibendum elit. Suspendisse consectetur nulla a quam maximus egestas.
+                </p>
             </div>
             <div class="menuImage menuImage5">
-                
+                <h1>menu slice 5</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut urna ac neque euismod venenatis ut nec est. Nulla vel
+                    imperdiet ex, et luctus lorem. Nunc sodales, nisl at pellentesque rhoncus, massa nunc bibendum lorem, et interdum mi
+                    justo a lorem. Nunc pretium lacus lacinia mi interdum, et ultricies est laoreet. Nulla viverra erat pellentesque maximus
+                    gravida. Praesent in purus lacus. Mauris id rutrum magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+                    pulvinar lobortis laoreet. Vivamus quis libero quis justo ornare commodo. Praesent suscipit urna tellus, a rhoncus urna
+                    tempor sit amet. Sed gravida nisi a ante tempor mollis. Fusce at varius sapien. Aenean mauris nunc, tristique nec metus
+                    a, consequat bibendum elit. Suspendisse consectetur nulla a quam maximus egestas.
+                </p>
             </div>
             <div class="ctxImg mol">
-                <img style="flex:1; object-fit:cover">
-                <img style="flex:1; object-fit:cover">
-                <img style="flex:1; object-fit:cover">
-                <img style="flex:1; object-fit:cover">
-                <img style="flex:1; object-fit:cover">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
             </div>
         </div>
         

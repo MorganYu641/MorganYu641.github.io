@@ -22,3 +22,33 @@
     transform: translate(-55px, 8px);
     align-self: right;
 }
+
+button {
+    background-color: #f0f0f0;
+    color: #86365C;
+    text-align: center;
+    display: inline;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+    transition-duration: 75ms;
+}
+
+button:hover {
+    background-color: #CA2FC7;
+    color: #f0f0f0;
+    box-shadow: none;
+    transition-duration: 150ms;
+}
+
+.navbar.autoHide {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateY(calc(-100% + 6px));
+    transition: transform .3s ease;
+}
+
+body.navVisible .navbar.autoHide,
+.navbar.autoHide:hover,
+.navbar.autoHide:focus-within {
+    transform: translateY(5%);
+}

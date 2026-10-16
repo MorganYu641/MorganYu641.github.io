@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Title</title>
-        <link rel="stylesheet" href="css/style.css" >
+        <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/slider.css">
         <link rel="stylesheet" href="css/navbar.css">
         <link rel="stylesheet" href="css/images.css">
@@ -11,8 +11,8 @@
         <link rel="stylesheet" href="css/dropdown.css">
     </head>
     <body class="body">
-        <script src="js/caroselJS.js">  </script>
-        <script src="js/javascript.js"> </script>
+        <script src="js/caroselJS.js" defer>  </script>
+        <script src="js/javascript.js"defer> </script>
         <div class="navbar">
             <button class="leftNavbar"> Left </button>
             <button onClick="setDebug('About me')"> About me </button>
@@ -27,14 +27,7 @@
               </div>
             </div>
             <div class="dropdown">
-              <button> Projects </button>
-              <button class="dropbtn">&#8744;</button>
-              <div class="dropdown-content">
-                <a href="#">Project 1</a>
-                <a href="#">Project 2</a>
-                <a href="#">Project 3</a>
-                <a href="#">Project 4</a>
-              </div>
+              <button><a href="aboutMe.html"> Projects </a></button>
             </div>
             <button class="rightNavbar"> Right </button>
         </div>

@@ -1,3 +1,8 @@
+
+body {
+    cursor: crosshair;
+    background: #2C111E;
+}
 /* Makes the divider positions animatable */
 @property --b1 {
     syntax: '<number>';
@@ -35,36 +40,31 @@ body {
     overflow: hidden;
     background: #000;
 
+    /* resting divider positions */
     --b1: 40;
     --b2: 80;
     --b3: 120;
     --b4: 160;
-    /* resting state */
+
+    /* bar images (2nd-4th) before any slice is hovered */
+    --bar-a: url(../images/H+CFighting.jpg);
+    --bar-b: url(../images/TCPaintedAzeb.jpg);
+    --bar-c: url(../images/ManekiNeko.jpg);
+
     transition: --b1 .6s ease, --b2 .6s ease, --b3 .6s ease, --b4 .6s ease;
-    
 }
 
-.mol {
-    position: absolute;
-    left: 0%;
-    top: 125%;
-    width: 1000px;
-    height: 100px;
-    transform: translate(-50%, -50%);
-    rotate: 45deg;
-    background-color: darkblue;
+/* ---------- Hover states: dividers + bar images ---------- */
+/* Hovered slice gets 120 of the 200 units, the others 20 each */
 
-    display: flex;
-    pointer-events: none;
-}
-
-/* Hovered image gets 120 of the 200 units, the others 20 each */
 .menu:has(.menuImage1:hover) {
     --b1: 120;
     --b2: 140;
     --b3: 160;
     --b4: 180;
-    
+    --bar-a: url(../SubnauticaImages/placeholder.png);
+    --bar-b: url(../SubnauticaImages/placeholder.png);
+    --bar-c: url(../SubnauticaImages/placeholder.png);
 }
 
 .menu:has(.menuImage2:hover) {
@@ -72,8 +72,9 @@ body {
     --b2: 140;
     --b3: 160;
     --b4: 180;
-    background-image: linear-gradient(to top right, #2CB2BA, #167E9E);
-    background-color: rgba(0, 0, 0, 0);
+    --bar-a: url(../images/BSAwards.jpg);
+    --bar-b: url(../images/BSAwards.jpg);
+    --bar-c: url(../SubnauticaImages/placeholder.png);
 }
 
 .menu:has(.menuImage3:hover) {
@@ -81,8 +82,9 @@ body {
     --b2: 40;
     --b3: 160;
     --b4: 180;
-    background-image: linear-gradient(to top right, #2CB2BA, #004981);
-    background-color: rgba(0, 0, 0, 0);
+    --bar-a: url(../images/RobotIdle.jpg);
+    --bar-b: url(../images/RobotInternals.jpg);
+    --bar-c: url(../SubnauticaImages/placeholder.png);
 }
 
 .menu:has(.menuImage4:hover) {
@@ -90,8 +92,9 @@ body {
     --b2: 40;
     --b3: 60;
     --b4: 180;
-    background-image: linear-gradient(to top right, #2CB2BA, #463F6E);
-    background-color: rgba(0, 0, 0, 0);
+    --bar-a: url(../SubnauticaImages/placeholder.png);
+    --bar-b: url(../SubnauticaImages/placeholder.png);
+    --bar-c: url(../SubnauticaImages/placeholder.png);
 }
 
 .menu:has(.menuImage5:hover) {
@@ -99,80 +102,133 @@ body {
     --b2: 40;
     --b3: 60;
     --b4: 80;
-    background-image: linear-gradient(to top right, #2CB2BA, #86365C);
-    background-color: rgba(0, 0, 0, 0);
+    --bar-a: url(../SubnauticaImages/placeholder.png);
+    --bar-b: url(../SubnauticaImages/placeholder.png);
+    --bar-c: url(../SubnauticaImages/placeholder.png);
 }
 
+/* ---------- The bar ---------- */
+
+.mol {
+    position: absolute;
+    left: 20%;
+    top: 75%;
+    width: 1000px;
+    height: 100px;
+    translate: -50% -50%;
+    /* standalone property: applied inside the rotation */
+    rotate: 45deg;
+    background-color: darkblue;
+
+    display: flex;
+    pointer-events: none;
+    /* so the bar never steals the slice hover */
+}
+
+.mol div {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+}
+
+.mol div:nth-child(2) {
+    background-image: var(--bar-a);
+}
+
+.mol div:nth-child(3) {
+    background-image: var(--bar-b);
+}
+
+.mol div:nth-child(4) {
+    background-image: var(--bar-c);
+}
+
+/* One differently-named copy of the spin per slice, so the animation
+   restarts when you move from one slice to another.
+   45deg -> 405deg = one full turn that ends at the resting angle. */
+
 .menu:has(.menuImage1:hover) .mol {
-    animation: imgBarHover 0.3s;
+    animation: spin1 .5s;
 }
 
 .menu:has(.menuImage2:hover) .mol {
-    animation: imgBarHover2 0.3s;
+    animation: spin2 .5s;
 }
 
 .menu:has(.menuImage3:hover) .mol {
-    animation: imgBarHover3 0.3s;
+    animation: spin3 .5s;
 }
 
 .menu:has(.menuImage4:hover) .mol {
-    animation: imgBarHover4 0.3s;
+    animation: spin4 .5s;
 }
 
 .menu:has(.menuImage5:hover) .mol {
-    animation: imgBarHover5 0.3s;
+    animation: spin5 .5s;
 }
 
-
-
-@keyframes imgBarHover {
+@keyframes spin1 {
     from {
-        rotate: 0deg;
-    }
-    to {
-        rotate: 360deg;
-    }
-}
-
-@keyframes imgBarHover2 {
-    from {
-            rotate: 0deg;
-        }
-    
-        to {
-            rotate: 360deg;
-        }
-}
-@keyframes imgBarHover3 {
-    from {
-        rotate: 0deg;
+        rotate: 45deg;
     }
 
     to {
-        rotate: 360deg;
+        rotate: 405deg;
     }
 }
-@keyframes imgBarHover4 {
+
+@keyframes spin2 {
     from {
-        rotate: 0deg;
+        rotate: 45deg;
     }
 
     to {
-        rotate: 360deg;
+        rotate: 405deg;
     }
 }
-@keyframes imgBarHover5 {
+
+@keyframes spin3 {
     from {
-        rotate: 0deg;
+        rotate: 45deg;
     }
 
     to {
-        rotate: 360deg;
+        rotate: 405deg;
     }
 }
+
+@keyframes spin4 {
+    from {
+        rotate: 45deg;
+    }
+
+    to {
+        rotate: 405deg;
+    }
+}
+
+@keyframes spin5 {
+    from {
+        rotate: 45deg;
+    }
+
+    to {
+        rotate: 405deg;
+    }
+}
+
+/* ---------- Slices ---------- */
+
 .menuImage {
     position: absolute;
     inset: 0;
+
+    /* text is invisible until the slice is hovered */
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: transparent;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0);
+    transition: color .6s ease, text-shadow .6s ease;
 
     /* corner vertex is only "used" if the corner lies between p1 and p2 */
     --pc: clamp(var(--p1), 100, var(--p2));
@@ -183,65 +239,71 @@ body {
             min(calc(var(--p2) * 1%), 100%) max(calc(var(--p2) * 1% - 100%), 0%));
 }
 
-.menuImage img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+/* The photo layer: sits above the slice's gradient, below its text */
+.menuImage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    /* clip-path makes .menuImage a stacking context, so this stays inside it */
+    background-image: var(--img);
+    background-size: cover;
+    background-position: center;
+    transform: scale(2.5);
+    /* the "zoomed in" look; raise for more zoom */
+    transition: opacity .6s ease;
 }
 
-/* Each image sits between two dividers */
+.menuImage:hover {
+    color: #fff;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+}
+
+.menuImage:hover::before {
+    opacity: 0;
+    /* fades the photo out, revealing the gradient underneath */
+}
+
+/* Each slice sits between two dividers. Padding pushes the text into
+   the part of the slice that's visible when it's the active one
+   (tuned for a roughly 16:9 desktop window). */
+
 .menuImage1 {
     --p1: 0;
     --p2: var(--b1);
-    background-color: #2CB2BA;
+    --img: url(../SubnauticaImages/placeholder.png);
+    background: linear-gradient(to bottom right, #2CB2BA, #3e99a7);
+    padding: 0vh 20vw 0vh 4vw;
 }
 
 .menuImage2 {
     --p1: var(--b1);
     --p2: var(--b2);
-    background-color: #167E9E;
+    --img: url(../images/BSAwards.jpg);
+    background: linear-gradient(to bottom right, #3e99a7, #508094);
+    padding: 0vh 4vw 0 20vw;
 }
 
 .menuImage3 {
     --p1: var(--b2);
     --p2: var(--b3);
-    background-color: #004981;
+    --img: url(../SubnauticaImages/placeholder.png);
+    background: linear-gradient(to bottom right, #508094, #626781);
+    padding: 0vh 4vw 0 45vw;
 }
 
 .menuImage4 {
     --p1: var(--b3);
     --p2: var(--b4);
-    background-color: #463F6E;
+    --img: url(../SubnauticaImages/placeholder.png);
+    background: linear-gradient(to bottom right, #626781, #744f6f);
+    padding: 0vh 3vw 0 62vw;
 }
 
 .menuImage5 {
     --p1: var(--b4);
     --p2: 200;
-    background-color: #86365C;
-}
-
-.menuImage1:hover {
-    background-image: linear-gradient(to bottom left, 0%, #2CB2BA, 70%, #2CB2BA);
-    background-color: rgba(0, 0, 0, 0);
-}
-
-.menuImage2:hover {
-    background-image: linear-gradient(to bottom left, #2CB2BA, #167E9E);
-    background-color: rgba(0, 0, 0, 0);
-}
-
-.menuImage3:hover {
-    background-image: linear-gradient(to bottom left, #2CB2BA, #004981);
-    background-color: rgba(0, 0, 0, 0);
-}
-
-.menuImage4:hover {
-    background-image: linear-gradient(to bottom left, #2CB2BA, #463F6E);
-    background-color: rgba(0, 0, 0, 0);
-}
-
-.menuImage5:hover {
-    background-image: linear-gradient(to bottom left, 0%, #2CB2BA, 70%, #86365C);
-    background-color: rgba(0, 0, 0, 0);
+    --img: url(../SubnauticaImages/placeholder.png);
+    background: linear-gradient(to bottom right, #744f6f, #86365C);
+    padding: 40vh 4vw 0 55vw;
 }
