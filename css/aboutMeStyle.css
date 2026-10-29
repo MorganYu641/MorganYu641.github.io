@@ -37,8 +37,7 @@
 }
 
 .autoPicofMe {
-    width: 43%;
-    max-width: 43%;
+    width: auto;
 
     display: flex;
     justify-self: left;
