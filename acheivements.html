@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/acheivements.css">
+    <link rel="stylesheet" href="css/navbar.css">
+	<title>Achievements</title>
+</head>
+<body>
+    <div class="navbar autoHide">
+        <button class="leftNavbar"> Left </button>
+        <button><a href="main.html"> About me </a></button>
+        <button><a href="acheivements.html"> Acheivements </a></button>
+        <button><a href="aboutMe.html"> Projects </a></button>
+        <button class="rightNavbar"> Right </button>
+    </div>
+    <div class="headImage">
+        <h1>Awards and Acolades</h1>
+        <div class="underscore"></div>
+    </div>
+    <br>
+
+    <div class="awards">
+
+        <div class="awardExterior">
+            <div class="award upper">
+                <div class="awardImg" style="--img: url(../SubnauticaImages/placeholder.png)">
+                    
+                </div>
+                <div class="awardTitle">
+                    <p>Black Belt in Taekwondo</p>
+                </div>
+            </div>
+            <div class="award lower">
+                <div class="awardExpand">
+                    --------
+                    <button type="button" aria-expanded="false" aria-controls="award-description-1">&#8659;</button>
+                    --------
+                </div>
+                <p class="awardExpandText" id="award-description-1">
+                    I have worked hard over the better part of a decade to acheive Black Belt rank in Taekwondo learning valuable lessons in patience, self control, leadership, integrity, and more.
+                </p>
+            </div>
+        </div>
+
+        <div class="awardExterior">
+            <div class="award upper">
+                <div class="awardImg" style="--img: url(../SubnauticaImages/placeholder.png)">
+        
+                </div>
+                <div class="awardTitle">
+                    <p>Eagle Scout</p>
+                </div>
+            </div>
+            <div class="award lower">
+                <div class="awardExpand">
+                    --------
+                    <button type="button" aria-expanded="false" aria-controls="award-description-2">&#8659;</button>
+                    --------
+                </div>
+                <p class="awardExpandText" id="award-description-2">
+                    I have worked hard over the better part of a decade to acheive Eagle Scout rank in Boy Scouts learning
+                    valuable lessons in stuff //TODO: write description.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.querySelectorAll(".awardExpand button").forEach((button) => {
+            const award = button.closest(".awardExterior");
+            const description = award.querySelector(".awardExpandText");
+
+            button.addEventListener("click", () => {
+                const isExpanded = button.getAttribute("aria-expanded") === "true";
+                button.setAttribute("aria-expanded", String(!isExpanded));
+                award.classList.toggle("is-expanded", !isExpanded);
+                description.style.maxHeight = isExpanded
+                    ? "0px"
+                    : `${description.scrollHeight}px`;
+            });
+        });
+    </script>
+</body>
+</html>
