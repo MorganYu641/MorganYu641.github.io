@@ -1,103 +1,66 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Another wander in the night</title>
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/slider.css">
-        <link rel="stylesheet" href="css/navbar.css">
-        <link rel="stylesheet" href="css/images.css">
-        <link rel="stylesheet" href="css/aboutMeStyle.css">
-        <link rel="stylesheet" href="css/scrollingtext.css">
-        <link rel="stylesheet" href="css/dropdown.css">
-    </head>
-    <body class="body">
-        <script src="js/caroselJS.js" defer>  </script>
-        <script src="js/javascript.js"defer> </script>
-        <div class="navbar">
-          <button class="leftNavbar"> Left </button>
-          <button><a href="main.html"> About me </a></button>
-          <button><a href="acheivements.html"> Acheivements </a></button>
-          <button><a href="aboutMe.html"> Projects </a></button>
-          <button class="rightNavbar"> Right </button>
-        </div>
-        <br>
-        <div class="header">
-          <h1>Me</h1>
-        </div>
-        <!-- Slideshow container -->
-        <div class="slideshow-container">
-          <!-- Full-width images with number and caption text -->
-          <div class="prevSlide" onclick="plusSlides(-1)">
-            <div class="pSlides fade">
-              <img src="SubnauticaImages/placeholder.png" style="width:100%">
-              <p class="prev">&#10096;</p>
-              <div class="text">Placeholder 1</div>
-            </div>
-          <div class="pSlides fade">
-              <img src="SubnauticaImages/placeholder.png" style="width:100%">
-              <p class="prev">&#10096;</p>
-              <div class="text">Placeholder 2</div>
-            </div>
-          <div class="pSlides fade">
-              <img src="SubnauticaImages/placeholder.png" style="width:100%">
-              <p class="prev">&#10096;</p>
-              <div class="text">Placeholder 3</div>
-            </div>
-          </div>
-          <div class="nextSlide" onclick="plusSlides(1)">
-            <div class="nSlides fade">
-              <img src="SubnauticaImages/placeholder.png" style="width:100%">
-              <p class="next">&#10095;</p>
-              <div class="text">Placeholder 1</div>
-            </div>
-          <div class="nSlides fade">
-              <img src="SubnauticaImages/placeholder.png" style="width:100%">
-              <p class="next">&#10095;</p>
-              <div class="text">Placeholder 2</div>
-            </div>
-          <div class="nSlides fade">
-              <img src="SubnauticaImages/placeholder.png" style="width:100%">
-              <p class="next">&#10095;</p>
-              <div class="text">Placeholder 3</div>
-            </div>
-          </div>
-          <!---->
-          <div class="mySlides fade">
-            <div class="numbertext">1 / 3</div>
-            <img src="SubnauticaImages/placeholder.png" style="width:100%">
-            <div class="text">Placeholder 1</div>
-          </div>
-          <div class="mySlides fade">
-            <div class="numbertext">2 / 3</div>
-            <img src="SubnauticaImages/placeholder.png" style="width:100%">
-            <div class="text">Placeholder 2</div>
-          </div>
-          <div class="mySlides fade">
-            <div class="numbertext">3 / 3</div>
-            <img src="SubnauticaImages/placeholder.png" style="width:100%">
-            <div class="text">Placeholder 3</div>
-          </div>
-        </div>
-        <br>
-        <br>
-        <hr>
-        
-        <div class="header">
-          <h1>Excellence of Outcomes</h1>
-        </div>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Another wander in the night</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Public+Sans:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/site.js" defer></script>
+</head>
+<body>
+  <header class="navbar">
+    <span class="brand">Class of 2027</span>
+    <nav aria-label="Main">
+      <a href="main.html" aria-current="page">About me</a>
+      <a href="acheivements.html">Achievements</a>
+      <a href="aboutMe.html">Projects</a>
+    </nav>
+  </header>
 
-        <img src="SubnauticaImages/placeholder.png" class="autoPicofMe" alt="placeholder" style="height: 300px">
-          <div class="sideDescriptiveText">
-            <h2 class="sideDescriptiveHeader">
-            About Me
-            </h2>
-            <p class="sideDescriptiveTextp" style="height: 300px">
-              Class of 2027 <br>
-              Co-founder of the Beechwood Robotics team <br>
-              High achiever | AP courses taken: <br> 
-              AP US History, AP US Government, AP Physics 1, AP Physics 2, AP Computer Science, AP Precalculus, AP Calculus AB
-            </p>
-          </div>
-          <br>
-    </body>
+  <main>
+    <div class="band">
+      <div class="plate"><h1>Me</h1></div>
+    </div>
+
+    <div>
+      <section class="carousel" tabindex="0" aria-roledescription="carousel" aria-label="Photos of me">
+        <figure class="slide"><img src="SubnauticaImages/placeholder.png" alt="Placeholder 1"><figcaption>Placeholder 1</figcaption></figure>
+        <figure class="slide"><img src="SubnauticaImages/placeholder.png" alt="Placeholder 2"><figcaption>Placeholder 2</figcaption></figure>
+        <figure class="slide"><img src="SubnauticaImages/placeholder.png" alt="Placeholder 3"><figcaption>Placeholder 3</figcaption></figure>
+        <button class="car-btn prev" type="button" aria-label="Previous photo">&#10094;</button>
+        <button class="car-btn next" type="button" aria-label="Next photo">&#10095;</button>
+      </section>
+      <p class="car-count" aria-live="polite">1 / 3</p>
+    </div>
+
+    <hr class="slash">
+
+    <div class="section-head">
+      <div class="plate"><h2>Excellence of Outcomes</h2></div>
+    </div>
+
+    <section class="about">
+      <img class="portrait" src="SubnauticaImages/placeholder.png" alt="Placeholder portrait">
+      <div class="card">
+        <h2>About Me</h2>
+        <p>Class of 2027</p>
+        <p>Co-founder of the Beechwood Robotics team</p>
+        <p>High achiever. AP courses taken:</p>
+        <ul class="courses">
+          <li>AP US History</li>
+          <li>AP US Government</li>
+          <li>AP Physics 1</li>
+          <li>AP Physics 2</li>
+          <li>AP Computer Science</li>
+          <li>AP Precalculus</li>
+          <li>AP Calculus AB</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</body>
 </html>

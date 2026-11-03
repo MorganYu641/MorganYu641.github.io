@@ -1,89 +1,71 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Let me paint the view</title>
-        <link rel="stylesheet" href="css/aboutMe.css" >
-        <link rel="stylesheet" href="css/navbar.css"  >
-        <link rel="stylesheet" href="css/dropdown.css">
-    </head>
-    <script>
-        // Show the navbar while the cursor is in the top 10% of the window
-        document.addEventListener('mousemove', (e) => {
-            document.body.classList.toggle('navVisible', e.clientY < window.innerHeight * 0.1);
-        });
-    </script>
-    <body>
-        <div class="navbar autoHide">
-            <button class="leftNavbar"> Left </button>
-            <button><a href="main.html"> About me </a></button>
-            <button><a href="acheivements.html"> Acheivements </a></button>
-            <button><a href="aboutMe.html"> Projects </a></button>
-            <button class="rightNavbar"> Right </button>
-        </div>
-        <div class="menu">
-            <div class="menuImage menuImage1">
-                <h1>Personal Coding Project 1: 2D fighitng game</h1>
-                <p>
-                    I made a 2D fighting game engine featuring:
-                    <ul>
-                        hitbox visualization and accurate hitbox calculation<br>
-                        accurate physics and working knockback<br>
-                        stun mechanics and frame-based timing<br>
-                        keyboard and controller input handling<br>
-                        easy extension of characters...<br>
-                    </ul>
-                    Screenshot shows project sample level on controller in testing mode <br>
-                    Github link: 
-                    //TODO: add project to Github and add to project link
-                </p>
-                <img>
-            </div>
-            <div class="menuImage menuImage2">
-                <h1>Personal Coding Project 2: Three <strike>Body</strike> Particle Problem</h1>
-                <p>
-                    After being inspired by reading the Three Body Problem novel, I made a 2D physics simulator.<br>
-                    It simulated three particles (celestial bodies) of variable weight, start position, size, color, and starting velocity, then simulated the three of them move. <br>
-                    The "goal" was to "solve" the Three Body Problem. What I actually did was have fun and mess around.
-                </p>
-            </div>
-            <div class="menuImage menuImage3">
-                <h1>School Project 1: AP CS A website challenge</h1>
-                <p>
-                    In AP Computer Science A, we were given a challenge 
-                </p>
-            </div>
-            <div class="menuImage menuImage4">
-                <h1>menu slice 4</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut urna ac neque euismod venenatis ut nec est. Nulla vel
-                    imperdiet ex, et luctus lorem. Nunc sodales, nisl at pellentesque rhoncus, massa nunc bibendum lorem, et interdum mi
-                    justo a lorem. Nunc pretium lacus lacinia mi interdum, et ultricies est laoreet. Nulla viverra erat pellentesque maximus
-                    gravida. Praesent in purus lacus. Mauris id rutrum magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                    pulvinar lobortis laoreet. Vivamus quis libero quis justo ornare commodo. Praesent suscipit urna tellus, a rhoncus urna
-                    tempor sit amet. Sed gravida nisi a ante tempor mollis. Fusce at varius sapien. Aenean mauris nunc, tristique nec metus
-                    a, consequat bibendum elit. Suspendisse consectetur nulla a quam maximus egestas.
-                </p>
-            </div>
-            <div class="menuImage menuImage5">
-                <h1>menu slice 5</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut urna ac neque euismod venenatis ut nec est. Nulla vel
-                    imperdiet ex, et luctus lorem. Nunc sodales, nisl at pellentesque rhoncus, massa nunc bibendum lorem, et interdum mi
-                    justo a lorem. Nunc pretium lacus lacinia mi interdum, et ultricies est laoreet. Nulla viverra erat pellentesque maximus
-                    gravida. Praesent in purus lacus. Mauris id rutrum magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                    pulvinar lobortis laoreet. Vivamus quis libero quis justo ornare commodo. Praesent suscipit urna tellus, a rhoncus urna
-                    tempor sit amet. Sed gravida nisi a ante tempor mollis. Fusce at varius sapien. Aenean mauris nunc, tristique nec metus
-                    a, consequat bibendum elit. Suspendisse consectetur nulla a quam maximus egestas.
-                </p>
-            </div>
-            <div class="ctxImg mol">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </div>
-        
-    </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Let me paint the view</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Public+Sans:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/aboutMe.css">
+  <script src="js/site.js" defer></script>
+</head>
+<body>
+  <header class="navbar">
+    <span class="brand">Class of 2027</span>
+    <nav aria-label="Main">
+      <a href="main.html">About me</a>
+      <a href="acheivements.html">Achievements</a>
+      <a href="aboutMe.html" aria-current="page">Projects</a>
+    </nav>
+  </header>
+
+  <main class="menu">
+    <h1 class="sr-only">Projects</h1>
+
+    <section class="menuImage menuImage1" tabindex="0">
+      <h2>Personal Coding Project 1: 2D fighting game</h2>
+      <p>I made a 2D fighting game engine featuring:</p>
+      <ul>
+        <li>hitbox visualization and accurate hitbox calculation</li>
+        <li>accurate physics and working knockback</li>
+        <li>stun mechanics and frame-based timing</li>
+        <li>keyboard and controller input handling</li>
+        <li>easy extension of characters</li>
+      </ul>
+      <p>The background image shows the sample level on controller in testing mode.</p>
+      <!-- TODO: add the project to GitHub and link it here -->
+    </section>
+
+    <section class="menuImage menuImage2" tabindex="0">
+      <h2>Personal Coding Project 2: Three <s>Body</s> Particle Problem</h2>
+      <p>After being inspired by reading the Three Body Problem novel, I made a 2D physics simulator.</p>
+      <p>It simulated three particles (celestial bodies) of variable weight, start position, size, color, and starting velocity, then simulated the three of them moving.</p>
+      <p>The "goal" was to "solve" the Three Body Problem. What I actually did was have fun and mess around.</p>
+    </section>
+
+    <section class="menuImage menuImage3" tabindex="0">
+      <h2>School Project 1: AP CS A website challenge</h2>
+      <p>In AP Computer Science A, we were given a website challenge.</p>
+      <!-- TODO: describe the challenge and what you built -->
+    </section>
+
+    <section class="menuImage menuImage4" tabindex="0">
+      <h2>Project 4</h2>
+      <p>Write-up coming soon.</p>
+    </section>
+
+    <section class="menuImage menuImage5" tabindex="0">
+      <h2>Project 5</h2>
+      <p>Write-up coming soon.</p>
+    </section>
+
+    <div class="mol" aria-hidden="true">
+      <div></div><div></div><div></div><div></div><div></div>
+    </div>
+
+    <p class="hint">Hover a slice to open a project</p>
+  </main>
+</body>
 </html>
