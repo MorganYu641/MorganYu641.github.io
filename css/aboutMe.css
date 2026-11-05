@@ -30,27 +30,27 @@
 }
 .menu:has(.menuImage2:is(:hover, :focus-visible)) {
   --b1: 20; --b2: 140; --b3: 160; --b4: 180;
-  --bar-a: url(../images/BSAwards.jpg);
-  --bar-b: url(../images/BSAwards.jpg);
-  --bar-c: url(../SubnauticaImages/placeholder.png);
+  --bar-a: url(../images/TBP/startingPos.PNG);
+  --bar-b: url(../images/TBP/particle.hpp.PNG);
+  --bar-c: url(../images/TBP/main.cpp.PNG);
 }
 .menu:has(.menuImage3:is(:hover, :focus-visible)) {
   --b1: 20; --b2: 40; --b3: 160; --b4: 180;
-  --bar-a: url(../images/RobotIdle.jpg);
-  --bar-b: url(../images/RobotInternals.jpg);
-  --bar-c: url(../SubnauticaImages/placeholder.png);
+  --bar-a: url(../images/CPU/ALU\ design.PNG);
+  --bar-b: url(../images/CPU/PC.PNG);
+  --bar-c: url(../images/CPU/RAM512.PNG);
 }
 .menu:has(.menuImage4:is(:hover, :focus-visible)) {
   --b1: 20; --b2: 40; --b3: 60; --b4: 180;
-  --bar-a: url(../SubnauticaImages/placeholder.png);
-  --bar-b: url(../SubnauticaImages/placeholder.png);
-  --bar-c: url(../SubnauticaImages/placeholder.png);
+  --bar-a: url(../images/APCSA\ website/fallSports.PNG);
+  --bar-b: url(../images/APCSA\ website/winterSports.PNG);
+  --bar-c: url(../images/APCSA\ website/springSports.PNG);
 }
 .menu:has(.menuImage5:is(:hover, :focus-visible)) {
   --b1: 20; --b2: 40; --b3: 60; --b4: 80;
-  --bar-a: url(../SubnauticaImages/placeholder.png);
-  --bar-b: url(../SubnauticaImages/placeholder.png);
-  --bar-c: url(../SubnauticaImages/placeholder.png);
+  --bar-a: url(../images/Ceramics/20251113_111910.jpg);
+  --bar-b: url(../images/Ceramics/20260420_112334-1.jpg);
+  --bar-c: url(../images/Ceramics/20251205_105442.jpg);
 }
 
 /* ---------- The spinning bar ---------- */
@@ -133,10 +133,10 @@
 .menuImage ul { margin: 0 0 .8rem; padding-left: 1.2rem; list-style: square; }
 
 .menuImage1 { --p1: 0;         --p2: var(--b1); --img: url(../SubnauticaImages/placeholder.png); background: linear-gradient(to bottom right, #2CB2BA, #3e99a7); padding: 14vh 20vw 0 4vw; }
-.menuImage2 { --p1: var(--b1); --p2: var(--b2); --img: url(../images/BSAwards.jpg);                background: linear-gradient(to bottom right, #3e99a7, #508094); padding: 10vh 4vw 0 20vw; }
-.menuImage3 { --p1: var(--b2); --p2: var(--b3); --img: url(../SubnauticaImages/placeholder.png); background: linear-gradient(to bottom right, #508094, #626781); padding: 6vh 4vw 0 45vw; }
-.menuImage4 { --p1: var(--b3); --p2: var(--b4); --img: url(../SubnauticaImages/placeholder.png); background: linear-gradient(to bottom right, #626781, #744f6f); padding: 6vh 3vw 0 62vw; }
-.menuImage5 { --p1: var(--b4); --p2: 200;       --img: url(../SubnauticaImages/placeholder.png); background: linear-gradient(to bottom right, #744f6f, #86365C); padding: 40vh 4vw 0 55vw; }
+.menuImage2 { --p1: var(--b1); --p2: var(--b2); --img: url(../images/TBP/particle.hpp.PNG);                background: linear-gradient(to bottom right, #3e99a7, #508094); padding: 10vh 4vw 0 20vw; }
+.menuImage3 { --p1: var(--b2); --p2: var(--b3); --img: url(../images/CPU/ALU.PNG); background: linear-gradient(to bottom right, #508094, #626781); padding: 6vh 4vw 0 45vw; }
+.menuImage4 { --p1: var(--b3); --p2: var(--b4); --img: url(../images/APCSA\ website/homePage.PNG); background: linear-gradient(to bottom right, #626781, #744f6f); padding: 6vh 3vw 0 62vw; }
+.menuImage5 { --p1: var(--b4); --p2: 200;       --img: url(../images/Ceramics/20260429_110035-1.jpg); background: linear-gradient(to bottom right, #744f6f, #86365C); padding: 40vh 4vw 0 55vw; }
 
 /* Tells people what to do before they've touched anything */
 .hint {
