@@ -1,0 +1,61 @@
+/* Achievements page */
+.awards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  gap: 2rem;
+  align-items: start;
+  width: min(1100px, 92vw);
+  margin: 1rem auto 5rem;
+}
+
+.award {
+  background: var(--blush);
+  color: var(--ink);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.6rem), calc(100% - 1.6rem) 100%, 0 100%);
+}
+
+.award-top { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); }
+
+.award-top img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 8rem;
+  object-fit: cover;
+  clip-path: polygon(0 0, 100% 0, 82% 100%, 0 100%);
+}
+
+.award-top h2 {
+  align-self: center;
+  padding: 1rem 1.25rem;
+  color: var(--plum);
+  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+}
+
+.award-toggle {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: .6rem 1.25rem;
+  border: 0;
+  background: var(--plum);
+  color: var(--blush);
+  font: 700 1rem var(--body);
+  text-align: left;
+  transition: background-color .15s;
+}
+
+.award-toggle:hover { background: var(--magenta); }
+.award-toggle:focus-visible { outline-offset: -4px; }
+.award-toggle .label { order: 1; }
+.award-toggle::after { content: ""; order: 2; flex: 1; height: 2px; background: currentColor; opacity: .5; }
+.award-toggle .chev { order: 3; transition: transform .3s; }
+.award-toggle[aria-expanded="true"] .chev { transform: rotate(180deg); }
+
+/* 0fr -> 1fr animates height without measuring it in JS */
+.award-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .4s ease; }
+.award.is-open .award-body { grid-template-rows: 1fr; }
+.award-body > div { overflow: hidden; visibility: hidden; transition: visibility .4s; }
+.award.is-open .award-body > div { visibility: visible; }
+.award-body p { margin: 0; padding: 1.25rem 1.5rem 2.4rem; }

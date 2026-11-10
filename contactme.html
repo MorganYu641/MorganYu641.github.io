@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 256 256%22><text y=%22203%22 font-size=%22224%22>&#x25CE</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Public+Sans:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/contactme.css">
+    <title>Contact Me</title>
+    <script src="js/site.js" defer></script>
+    <script src="js/contactme.js" defer></script>
+</head>
+
+<body>
+    <header class="navbar">
+        <span class="brand">Class of 2027</span>
+        <nav aria-label="Main">
+            <a href="excellenceOfOutcomes.html">&#x25CC</a>
+            <a href="main.html">About me</a>
+            <a href="acheivements.html">Achievements</a>
+            <a href="aboutMe.html">Edge Showcase</a>
+            <a href="excellenceOfOutcomes.html">Excellence Of Outcomes</a>
+            <a href="contactme.html" aria-current="page">Contact Me</a>
+            <a href="main.html">&#x25CD</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Decorative clock: centred on the top-right corner so only one quarter shows -->
+        <div class="clock" aria-hidden="true">
+            <div class="face"></div>
+            <!-- The dial turns so the real local time sits under the fixed "now" hand (see js/contactme.js) -->
+            <div class="dial">
+                <div class="ticks minor"></div>
+                <div class="ticks major"></div>
+
+                <span class="num" style="--a:0deg">XII</span>
+                <span class="num" style="--a:30deg">I</span>
+                <span class="num" style="--a:60deg">II</span>
+                <span class="num" style="--a:90deg">III</span>
+                <span class="num" style="--a:120deg">IV</span>
+                <span class="num" style="--a:150deg">V</span>
+                <span class="num" style="--a:180deg">VI</span>
+                <span class="num" style="--a:210deg">VII</span>
+                <span class="num" style="--a:240deg">VIII</span>
+                <span class="num" style="--a:270deg">IX</span>
+                <span class="num" style="--a:300deg">X</span>
+                <span class="num" style="--a:330deg">XI</span>
+            </div>
+
+            <!-- "then" hands: --t = seconds per turn, --l = length (fraction of radius), --dir = spin direction -->
+            <div class="hand" style="--t:21s;  --l:.92; --c:var(--teal)"><i></i><b>then</b></div>
+            <div class="hand" style="--t:34s;  --l:.72; --c:var(--magenta); --w:1px; --dir:reverse; --d:-9s">
+                <i></i><b>then</b></div>
+            <div class="hand" style="--t:55s;  --l:.55; --c:rgb(245 229 237 / .7); --d:-20s"><i></i><b>then</b></div>
+            <div class="hand" style="--t:89s;  --l:.85; --c:var(--teal); --w:1px; --dir:reverse; --d:-40s">
+                <i></i><b>then</b></div>
+            <div class="hand" style="--t:144s; --l:.45; --c:var(--magenta); --w:3px; --d:-70s"><i></i><b>then</b></div>
+            <div class="hand" style="--t:60s;  --l:.98; --c:var(--blush); --w:1px; --ease:steps(60); --d:-13s">
+                <i></i><b>then</b></div>
+            <div class="hand" style="--t:13s;  --l:.3;  --c:#b3547f; --w:3px; --dir:reverse"><i></i><b>then</b></div>
+
+            <!-- "now" hand: never moves -->
+            <div class="hand now"><i></i><b>now</b></div>
+            <div class="hub"></div>
+        </div>
+
+        <section class="hero">
+            <div class="marquee" aria-hidden="true">
+                <div class="track" style="--t:45s">THE END IS NEVER THE END IS NEVER THE END IS NEVER
+                    THE END IS NEVER</div>
+                <div class="track outline" style="--t:60s; --d:-20s">THE END IS NEVER THE END IS NEVER
+                    THE END IS NEVER THE END IS NEVER</div>
+                <div class="track" style="--t:80s; --d:-50s">THE END IS NEVER THE END IS NEVER THE END
+                    IS NEVER THE END IS NEVER </div>
+                <div class="track outline" style="--t:30s">THE END IS NEVER THE END IS NEVER THE END IS NEVER
+                    THE END IS NEVER</div>
+                <div class="track" style="--t:55s; --d:-20s">THE END IS NEVER THE END IS NEVER
+                    THE END IS NEVER THE END IS NEVER</div>
+                <div class="track outline" style="--t:40s; --d:-50s">THE END IS NEVER THE END IS NEVER THE END
+                    IS NEVER THE END IS NEVER </div>
+                <div class="track" style="--t:15s">THE END IS NEVER THE END IS NEVER THE END IS NEVER
+                    THE END IS NEVER</div>
+            </div>
+
+            <div class="heroText">
+                <h1>Contact Me</h1>
+                <p class="sub">or, get to know me</p>
+                <div class="actions">
+                    <a class="btn"
+                        href="mailto:connor.darnell@stu.beechwood.kyschools.us">connor.darnell@stu.beechwood.kyschools.us</a>
+                    <span class="btn split">
+                        <!-- Change the résumé path here; the print button reuses this link -->
+                        <a id="resumeLink" href="resume.pdf" target="_blank" rel="noopener">View
+                            r&eacute;sum&eacute;</a>
+                        <button id="printResume" type="button">Print</button>
+                    </span>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

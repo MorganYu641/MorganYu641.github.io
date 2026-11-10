@@ -1,0 +1,161 @@
+/* Projects page: five-slice diagonal menu */
+@property --b1 { syntax: '<number>'; inherits: true; initial-value: 40; }
+@property --b2 { syntax: '<number>'; inherits: true; initial-value: 80; }
+@property --b3 { syntax: '<number>'; inherits: true; initial-value: 120; }
+@property --b4 { syntax: '<number>'; inherits: true; initial-value: 160; }
+
+.menu {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--ink-deep);
+
+  /* resting divider positions (0-200 = along the top edge, then down the right edge) */
+  --b1: 40; --b2: 80; --b3: 120; --b4: 160;
+
+  /* bar images (2nd-4th cells) before any slice is hovered */
+  --bar-a: url(../images/H+CFighting.jpg);
+  --bar-b: url(../images/TCPaintedAzeb.jpg);
+  --bar-c: url(../images/ManekiNeko.jpg);
+
+  transition: --b1 .6s ease, --b2 .6s ease, --b3 .6s ease, --b4 .6s ease;
+}
+
+/* ---------- Hover / keyboard-focus states ---------- */
+.menu:has(.menuImage1:is(:hover, :focus-visible)) {
+  --b1: 120; --b2: 140; --b3: 160; --b4: 180;
+  --bar-a: url(../images/fightingGameDemo/basicGameplay.PNG);
+  --bar-b: url(../images/fightingGameDemo/gold.png.PNG);
+  --bar-c: url(../images/fightingGameDemo/player.hppCodeSample.PNG);
+}
+.menu:has(.menuImage2:is(:hover, :focus-visible)) {
+  --b1: 20; --b2: 140; --b3: 160; --b4: 180;
+  --bar-a: url(../images/TBP/startingPos.PNG);
+  --bar-b: url(../images/TBP/particle.hpp.PNG);
+  --bar-c: url(../images/TBP/main.cpp.PNG);
+}
+.menu:has(.menuImage3:is(:hover, :focus-visible)) {
+  --b1: 20; --b2: 40; --b3: 160; --b4: 180;
+  --bar-a: url(../images/CPU/ALU\ design.PNG);
+  --bar-b: url(../images/CPU/PC.PNG);
+  --bar-c: url(../images/CPU/RAM512.PNG);
+}
+.menu:has(.menuImage4:is(:hover, :focus-visible)) {
+  --b1: 20; --b2: 40; --b3: 60; --b4: 180;
+  --bar-a: url(../images/APCSA\ website/fallSports.PNG);
+  --bar-b: url(../images/APCSA\ website/winterSports.PNG);
+  --bar-c: url(../images/APCSA\ website/springSports.PNG);
+}
+.menu:has(.menuImage5:is(:hover, :focus-visible)) {
+  --b1: 20; --b2: 40; --b3: 60; --b4: 80;
+  --bar-a: url(../images/Ceramics/20251113_111910.jpg);
+  --bar-b: url(../images/Ceramics/20260420_112334-1.jpg);
+  --bar-c: url(../images/Ceramics/20251205_105442.jpg);
+}
+
+/* ---------- The spinning bar ---------- */
+.mol {
+  position: absolute;
+  left: 15%;
+  top: 75%;
+  width: min(1000px, 120vh);
+  height: clamp(70px, 12vh, 100px);
+  translate: -50% -50%;
+  rotate: 45deg;
+  display: flex;
+  background: var(--plum);
+  pointer-events: none; /* never steals the slice hover */
+}
+
+.mol div { flex: 1; background-size: cover; background-position: center; }
+.mol div:first-child { background: var(--teal); }
+.mol div:nth-child(2) { background-image: var(--bar-a); }
+.mol div:nth-child(3) { background-image: var(--bar-b); }
+.mol div:nth-child(4) { background-image: var(--bar-c); }
+.mol div:last-child { background: var(--magenta); }
+
+/* One identically-built spin per slice, with different names, so the
+   animation restarts when you move from one slice to the next. */
+.menu:has(.menuImage1:is(:hover, :focus-visible)) .mol { animation: spin1 .5s; }
+.menu:has(.menuImage2:is(:hover, :focus-visible)) .mol { animation: spin2 .5s; }
+.menu:has(.menuImage3:is(:hover, :focus-visible)) .mol { animation: spin3 .5s; }
+.menu:has(.menuImage4:is(:hover, :focus-visible)) .mol { animation: spin4 .5s; }
+.menu:has(.menuImage5:is(:hover, :focus-visible)) .mol { animation: spin5 .5s; }
+
+@keyframes spin1 { from { rotate: 45deg; } to { rotate: 405deg; } }
+@keyframes spin2 { from { rotate: 45deg; } to { rotate: 405deg; } }
+@keyframes spin3 { from { rotate: 45deg; } to { rotate: 405deg; } }
+@keyframes spin4 { from { rotate: 45deg; } to { rotate: 405deg; } }
+@keyframes spin5 { from { rotate: 45deg; } to { rotate: 405deg; } }
+
+/* ---------- Slices ---------- */
+.menuImage {
+  position: absolute;
+  inset: 0;
+
+  /* text stays invisible until the slice is hovered or focused */
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: transparent;
+  text-shadow: 0 1px 4px rgb(0 0 0 / 0);
+  transition: color .6s ease, text-shadow .6s ease;
+
+  /* the corner vertex only counts if the corner lies between p1 and p2 */
+  --pc: clamp(var(--p1), 100, var(--p2));
+  clip-path: polygon(
+    0% 100%,
+    min(calc(var(--p1) * 1%), 100%) max(calc(var(--p1) * 1% - 100%), 0%),
+    min(calc(var(--pc) * 1%), 100%) max(calc(var(--pc) * 1% - 100%), 0%),
+    min(calc(var(--p2) * 1%), 100%) max(calc(var(--p2) * 1% - 100%), 0%)
+  );
+}
+
+/* zoomed-in photo layer; fades out on hover to reveal the gradient */
+.menuImage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--img) center / cover;
+  transform: scale(2.5);
+  transition: opacity .6s ease;
+}
+
+.menuImage:is(:hover, :focus-visible) {
+  color: #fff;
+  text-shadow: 0 1px 4px rgb(0 0 0 / .6);
+  outline: none; /* the clip-path would hide it; the reveal is the focus cue */
+}
+.menuImage:is(:hover, :focus-visible)::before { opacity: 0; }
+
+.menuImage h2 { margin-bottom: .8rem; color: inherit; font-size: clamp(1.8rem, 3.4vw, 3rem); }
+.menuImage p { margin: 0 0 .6rem; }
+.menuImage ul { margin: 0 0 .8rem; padding-left: 1.2rem; list-style: square; }
+
+.menuImage1 { --p1: 0;         --p2: var(--b1); --img: url(../images/fightingGameDemo/gold.hppCodeSample.PNG);  background: linear-gradient(to bottom right, #2CB2BA, #3e99a7); padding: 14vh 20vw 0 4vw;  }
+.menuImage2 { --p1: var(--b1); --p2: var(--b2); --img: url(../images/TBP/particle.hpp.PNG);                     background: linear-gradient(to bottom right, #3e99a7, #508094); padding: 10vh 4vw  0 20vw; }
+.menuImage3 { --p1: var(--b2); --p2: var(--b3); --img: url(../images/CPU/ALU.PNG);                              background: linear-gradient(to bottom right, #508094, #626781); padding: 6vh  4vw  0 45vw; }
+.menuImage4 { --p1: var(--b3); --p2: var(--b4); --img: url(../images/APCSA\ website/homePage.PNG);              background: linear-gradient(to bottom right, #626781, #744f6f); padding: 6vh  3vw  0 62vw; }
+.menuImage5 { --p1: var(--b4); --p2: 200;       --img: url(../images/Ceramics/20260429_110035-1.jpg);           background: linear-gradient(to bottom right, #744f6f, #86365C); padding: 40vh 4vw  0 55vw; }
+
+/* Tells people what to do before they've touched anything */
+.hint {
+  position: absolute;
+  right: 2rem;
+  bottom: 1.5rem;
+  z-index: 3;
+  margin: 0;
+  font: 700 1.4rem var(--display);
+  letter-spacing: .06em;
+  text-shadow: 0 1px 4px rgb(0 0 0 / .6);
+  pointer-events: none;
+  transition: opacity .4s;
+}
+.menu:has(.menuImage:is(:hover, :focus-visible)) .hint { opacity: 0; }
+
+/* Small screens and touch: the diagonal needs a cursor, so stack the slices */
+@media (max-width: 760px), (hover: none) {
+  .menu { height: auto; overflow: visible; background: none; }
+  .menu .menuImage { position: relative; inset: auto; clip-path: none; color: #fff; padding: 2rem 1.25rem; }
+  .menuImage::before, .mol, .hint { display: none; }
+}

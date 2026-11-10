@@ -1,0 +1,244 @@
+@font-face {
+    font-family: "felarium";
+    src: url("../fonts/felarium-font/Felarium-KVgMD.otf") format("opentype");
+    font-display: swap;
+}
+
+h1 {  
+    
+}
+
+/* ---------- Hero: big heading over a scrolling wall of text ---------- */
+.hero {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    text-align: center;
+}
+
+.marquee {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    pointer-events: none;
+}
+
+.track {
+    width: max-content;
+    font: 800 clamp(4.5rem, 16vh, 11rem)/1 var(--display);
+    letter-spacing: .03em;
+    white-space: nowrap;
+    color: rgb(134 54 92 / .45);
+    /* the text is written out four times; sliding half the width loops seamlessly */
+    animation: scrollLeft var(--t, 50s) linear infinite;
+    animation-delay: var(--d, 0s);
+}
+
+.track.outline {
+    color: transparent;
+    -webkit-text-stroke: 2px rgb(44 178 186 / .5);
+}
+
+@keyframes scrollLeft {
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.heroText {
+    position: relative;
+    z-index: 3;
+    padding: 6rem 1rem 4rem;
+}
+
+.heroText h1 {
+    font-size: clamp(3.5rem, 12vw, 9rem);
+    color: var(--blush);
+    text-shadow: 0 .06em 0 var(--ink-deep), 0 0 .5em var(--ink-deep);
+}
+
+.sub {
+    margin: .5rem 0 2.5rem;
+    font: 700 1.3rem var(--display);
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    text-shadow: 0 0 .6em var(--ink-deep);
+}
+
+/* ---------- Buttons ---------- */
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    justify-content: center;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: stretch;
+    background: var(--blush);
+    color: var(--plum);
+    font: 700 .95rem/1.2 var(--body);
+    text-decoration: none;
+    transform: skewX(var(--slant));
+    box-shadow: .35rem .35rem 0 var(--ink-deep);
+}
+
+.btn>a,
+.btn>button,
+a.btn {
+    padding: .7rem 1.4rem;
+    color: inherit;
+    font: inherit;
+    text-decoration: none;
+    background: none;
+    border: 0;
+}
+
+a.btn {
+    transition: background-color .15s, color .15s;
+}
+
+a.btn:hover,
+.btn>a:hover,
+.btn>button:hover {
+    background: var(--magenta);
+    color: var(--blush);
+}
+
+.btn.split>button {
+    border-left: 2px solid var(--plum);
+}
+
+/* ---------- Analog clock: its centre sits on the top-right corner of the window ---------- */
+.clock {
+    --R: max(150px, min(55vh, 42vw, 520px));
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    width: calc(var(--R) * 2);
+    height: calc(var(--R) * 2);
+    translate: 50% -50%;
+    pointer-events: none;
+}
+
+.face {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: rgb(26 10 18 / .88);
+    border: 4px double var(--teal);
+}
+
+/* Ticks are conic-gradient wedges, masked down to a thin ring at the rim */
+.ticks {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+}
+
+.ticks.minor {
+    background: repeating-conic-gradient(from -.2deg, var(--blush) 0 .4deg, transparent .4deg 6deg);
+    mask: radial-gradient(closest-side, transparent 95%, #000 95%, #000 99%, transparent 99%);
+}
+
+.ticks.major {
+    background: repeating-conic-gradient(from -.45deg, var(--blush) 0 .9deg, transparent .9deg 30deg);
+    mask: radial-gradient(closest-side, transparent 89%, #000 89%, #000 99%, transparent 99%);
+}
+
+/* --dial is set by js/contactme.js; without JS the dial rests at 0deg */
+.dial {
+    position: absolute;
+    inset: 0;
+    transform: rotate(var(--dial, 0deg));
+}
+
+.num {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font: 400 calc(var(--R) * .1)/1 felarium, var(--display), serif;
+    color: var(--blush);
+    /* the last rotate cancels the dial's turn so numerals stay upright */
+    transform: translate(-50%, -50%) rotate(var(--a)) translateY(calc(var(--R) * -.78)) rotate(calc(var(--a) * -1)) rotate(calc(var(--dial, 0deg) * -1));
+}
+
+/* Each hand is a zero-size pivot at the centre; <i> is the blade, <b> the label */
+.hand {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 0;
+    height: 0;
+    animation: turn var(--t, 20s) var(--ease, linear) infinite;
+    animation-direction: var(--dir, normal);
+    animation-delay: var(--d, 0s);
+}
+
+.hand i {
+    position: absolute;
+    left: calc(var(--w, 2px) / -2);
+    bottom: 0;
+    width: var(--w, 2px);
+    height: calc(var(--R) * var(--l));
+    background: var(--c);
+}
+
+.hand b {
+    position: absolute;
+    left: calc(var(--w, 2px) / 2 + 3px);
+    bottom: calc(var(--R) * var(--l) * .35);
+    writing-mode: vertical-rl;
+    font: 600 .5rem/1 var(--body);
+    letter-spacing: .3em;
+    color: var(--c);
+}
+
+@keyframes turn {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* "now": fixed, pointing down-left at 45 degrees */
+.hand.now {
+    animation: none;
+    transform: rotate(225deg);
+}
+
+.now i {
+    --w: 1.7rem;
+    --l: .66;
+    --c: var(--blush);
+    clip-path: polygon(35% 0, 65% 0, 100% 100%, 0 100%);
+}
+
+.now b {
+    left: -.85rem;
+    bottom: calc(var(--R) * .2);
+    width: 1.7rem;
+    display: flex;
+    justify-content: center;
+    font: 400 1.2rem/1 felarium, var(--display), serif;
+    letter-spacing: .2em;
+    color: var(--ink);
+}
+
+.hub {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 1.8rem;
+    height: 1.8rem;
+    translate: -50% -50%;
+    border-radius: 50%;
+    background: var(--teal);
+    border: 3px solid var(--blush);
+}

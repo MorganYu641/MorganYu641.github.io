@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 256 256%22><text y=%22203%22 font-size=%22224%22>&#x25CE</text></svg>" />
+  <title>Edge Showcase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Public+Sans:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/aboutMe.css">
+  <link rel="stylesheet" href="css/IFS.css">
+  <script src="js/site.js" defer></script>
+  <script src="js/revealImageFullscreen.js" defer></script>
+</head>
+<body>
+  <header class="navbar">
+    <span class="brand">Class of 2027</span>
+    <nav aria-label="Main">
+      <a href="acheivements.html">&#x25CC</a>
+      <a href="main.html">About me</a>
+      <a href="acheivements.html">Achievements</a>
+      <a href="aboutMe.html" aria-current="page">Edge Showcase</a>
+      <a href="excellenceOfOutcomes.html">Excellence Of Outcomes</a>
+      <a href="contactme.html">Contact Me</a>
+      <a href="excellenceOfOutcomes.html">&#x25CD</a>
+    </nav>
+  </header>
+
+  <main class="menu">
+    <h1 class="sr-only">Projects</h1>
+    
+    <section class="menuImage menuImage1" tabindex="0">
+      <h2>Personal Coding Project 1: 2D fighting game</h2>
+      <p>I made a 2D fighting game engine featuring:</p>
+      <ul>
+        <li>hitbox visualization and accurate hitbox calculation</li>
+        <li>accurate physics and working knockback</li>
+        <li>stun mechanics and frame-based timing</li>
+        <li>keyboard and controller input handling</li>
+        <li>easy extension of characters</li>
+      </ul>
+      <p>The background image shows the sample level on controller in testing mode.</p>
+      <div class="expandButton expandButton1">
+        <button class="button expand" onclick="toggleImgFullscreen('IFS1')">&#x26F6</button>
+      </div>
+      <!-- TODO: add the project to GitHub and link it here -->
+    </section>
+
+    <section class="menuImage menuImage2" tabindex="0">
+      <h2>Personal Coding Project 2: Three <s>Body</s> Particle Problem</h2>
+      <p>After being inspired by reading the Three Body Problem novel, I made a 2D physics simulator.</p>
+      <p>It simulated three particles (celestial bodies) of variable weight, start position, size, color, and starting velocity, then simulated the three of them moving.</p>
+      <p>The "goal" was to "solve" the Three Body Problem. What I actually did was have fun and mess around.</p>
+      <div class="expandButton">
+        <button class="button expand" onclick="toggleImgFullscreen('IFS2')">&#x26F6</button>
+      </div>
+    </section>
+
+    <section class="menuImage menuImage3" tabindex="0">
+      <h2>Personal Coding Project 3: My own CPU</h2>
+      <p>While I'm not finished, I have been designing my own CPU from scratch for the past few months.</p>
+      <p>I have designed the following logical gates from just the nand gate: NOT, AND, OR, Xor, Mux, DMux, Not16, And16, Or16, Mux16, Or8Way, Mux4Way16, Mux8Way16, DMux4Way16, DMux8Way16</p>
+      <p>The following mathimatical gates: HalfAdder, FullAdder, Add16, Inc16, ALU</p>
+      <p>And the following storage gates: Bit, (up to) RAM 16kb, PC</p>
+      <!-- TODO: describe the challenge and what you built -->
+      <div class="expandButton">
+        <button class="button expand" onclick="toggleImgFullscreen('IFS3')">&#x26F6</button>
+      </div>
+    </section>
+
+    <section class="menuImage menuImage4" tabindex="0">
+      <h2>School Project 1: Intro to Computer Science website challenge</h2>
+      <p>In AP Computer Science A, we were given challenge to make remake a section of the old Beechwood website.</p>
+      <p>The seciton of the website I chose was the athletics section.</p>
+      <p>I wanted to do something unique so I made the images of the coaches flip over when you mouse over revealing their name, title, and a link to their section on the official website.</p>
+      <p>I was rather proud of this one</p>
+      <!-- TODO: describe the challenge and what you built -->
+      <div class="expandButton">
+        <button class="button expand" onclick="toggleImgFullscreen('IFS4')">&#x26F6</button>
+      </div>
+    </section>
+
+    <section class="menuImage menuImage5" tabindex="0">
+      <h2>School Project 2: Ceramics</h2>
+      <p>Every project in ceramics challenged me to be better and more creative.</p>
+      <p>Projects ranged from 2D images of Santa to full-sized functional teapots, each project taught me something new.</p>
+      <p>Our first projects were pinch-pots which taught me the fundamentals of pottery,</p>
+      <p>Our box projects taught me to be carefull and to closely monitor the clay as it dried out,</p>
+      <p>And more...</p>
+      <div class="expandButton">
+        <button class="button expand" onclick="toggleImgFullscreen('IFS5')">&#x26F6</button>
+      </div>
+    </section>
+
+    <div class="mol" aria-hidden="true">
+      <div></div><div></div><div></div><div></div><div></div>
+    </div>
+
+    <p class="hint">Hover a slice to open a project</p>
+
+    <div class="imageFullscreen" id="IFS1" onclick="toggleImgFullscreen('IFS1')">
+      <div class="imagediv"><img src="images/fightingGameDemo/gold.hppCodeSample.PNG" width="100%" class="image"></div>
+      <div class="imagediv"><img src="images/fightingGameDemo/basicGameplay.PNG" width="100%" class="image"></div>
+      <div class="imagediv"><img src="images/fightingGameDemo/gold.png.PNG" width="100%" class="image"></div>
+      <div class="imagediv"><img src="images/fightingGameDemo/player.hppCodeSample.PNG" width="100%" class="image"></div>
+    </div>
+
+    <div class="imageFullscreen" id="IFS2" onclick="toggleImgFullscreen('IFS2')">
+      <div class="imagediv"><img src="images/TBP/main.cpp.PNG" width="100%" class="image"></div>
+      <div class="imagediv"><img src="images/TBP/particle.hpp.PNG" width="100%" class="image"></div>
+      <div class="imagediv"><img src="images/TBP/startingPos.PNG" width="100%" class="image"></div>
+      <div class="imagediv"><img src="images/TBP/terminal.PNG" width="100%" class="image"></div>
+    </div>
+
+    <div class="imageFullscreen" id="IFS3" onclick="toggleImgFullscreen('IFS3')">
+      <div class="imagediv"><img src="images/CPU/ALU design.PNG" width="100%" class="image"></div>
+      <div class="imagediv"><img src="images/CPU/ALU.PNG" width="100%" class="image"></div>
+      <div class="imagediv"><img src="images/CPU/PC.PNG" width="100%" class="image"></div>
+      <div class="imagediv"><img src="images/CPU/RAM512.PNG" width="100%" class="image"></div>
+    </div>
+
+    <div class="imageFullscreen" id="IFS4" onclick="toggleImgFullscreen('IFS4')">
+      <div class="imagediv"><img src="images/APCSA website/fallSports.PNG" width="100%" class="image"></div>
+      <div class="imagediv"><img src="images/APCSA website/homePage.PNG" width="100%" class="image"></div>
+      <div class="imagediv"><img src="images/APCSA website/springSports.PNG" width="100%" class="image"></div>
+      <div class="imagediv"><img src="images/APCSA website/winterSports.PNG" width="100%" class="image"></div>
+    </div>
+
+    <div class="imageFullscreen" id="IFS5" onclick="toggleImgFullscreen('IFS5')">
+      <div class="imagediv"><img src="images/Ceramics/20260429_110035-1.jpg" width="100%" class="image"></div>
+      <div class="imagediv"><img src="images/Ceramics/20260420_112334-1.jpg" width="100%" class="image"></div>
+      <div class="imagediv"><img src="images/Ceramics/20251113_111910.jpg" width="100%" class="image"></div>
+      <div class="imagediv"><img src="images/Ceramics/20251205_105442.jpg" width="100%" class="image"></div>
+      <div class="imagediv"><img src="images/Ceramics/20251013_111546.jpg" width="100%" class="image"></div>
+      <div class="imagediv"><img src="images/Ceramics/IMG_20260410_112538.jpg" width="100%" class="image"></div>
+    </div>
+
+  </main>
+</body>
+</html>

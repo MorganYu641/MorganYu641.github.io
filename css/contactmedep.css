@@ -1,0 +1,13 @@
+@font-face {
+    font-family: "felarium";
+    src: url("../fonts/felarium-font/Felarium-KVgMD.otf") format("opentype");
+}
+
+h1 {
+    font-family: felarium;
+}
+
+.contactme {
+    position: absolute;
+    left:50%;
+}

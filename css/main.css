@@ -1,0 +1,120 @@
+/* Home page */
+.carousel {
+  position: relative;
+  width: min(92vw, 1000px);
+  aspect-ratio: 16 / 7;
+  margin: 3.5rem auto 1rem;
+  overflow: clip;
+}
+
+.slide {
+  position: absolute;
+  inset: 0 auto 0 50%;
+  width: 56%;
+  margin: 0;
+  translate: -50% 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform .5s ease, opacity .5s ease, filter .5s ease;
+}
+
+.slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%);
+}
+
+.slide figcaption {
+  position: absolute;
+  inset: auto 6% 0 6%;
+  padding: .5rem 1rem;
+  background: rgb(26 10 18 / .85);
+  text-align: center;
+  font: 700 1.1rem var(--display);
+  letter-spacing: .04em;
+}
+
+.slide.is-current { opacity: 1; pointer-events: auto; z-index: 2; }
+
+.slide.is-prev,
+.slide.is-next {
+  opacity: .5;
+  filter: saturate(.5) brightness(.7);
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.slide.is-prev { transform: translateX(-64%) scale(.8); }
+.slide.is-next { transform: translateX(64%) scale(.8); }
+
+.car-btn {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  width: 3rem;
+  height: 4rem;
+  border: 0;
+  background: var(--blush);
+  color: var(--plum);
+  font-size: 1.4rem;
+  transform: translateY(-50%) skewX(var(--slant));
+  transition: background-color .15s, color .15s;
+}
+
+.car-btn.prev { left: 0; }
+.car-btn.next { right: 0; }
+.car-btn:hover { background: var(--magenta); color: var(--blush); }
+
+.car-count {
+  margin: 0 0 1rem;
+  text-align: center;
+  font: 700 1.25rem var(--display);
+  letter-spacing: .1em;
+}
+
+.section-head { width: min(1100px, 92vw); margin: 0 auto; }
+
+.about {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+  width: min(1100px, 92vw);
+  margin: 2.5rem auto 5rem;
+}
+
+.portrait {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  box-shadow: -.6rem .6rem 0 var(--plum);
+}
+
+.card {
+  padding: 2rem 2.2rem 2.6rem;
+  background: var(--blush);
+  color: var(--ink);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 0 100%);
+}
+
+.card h2 { margin-bottom: 1rem; color: var(--plum); font-size: 2.6rem; text-align: right; }
+.card p { margin: 0 0 .6rem; }
+
+.courses { display: flex; flex-wrap: wrap; gap: .5rem; margin: .8rem 0 0; padding: 0; list-style: none; }
+.courses li {
+  padding: .2rem .8rem;
+  background: var(--plum);
+  color: var(--blush);
+  font-size: .95rem;
+  transform: skewX(var(--slant));
+}
+
+@media (max-width: 700px) {
+  .carousel { aspect-ratio: 4 / 3; }
+  .slide { left: 0; width: 100%; translate: none; }
+  .slide.is-prev, .slide.is-next { opacity: 0; pointer-events: none; }
+  .about { grid-template-columns: 1fr; }
+}
