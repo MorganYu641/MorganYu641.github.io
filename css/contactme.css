@@ -26,11 +26,12 @@ h1 {
     flex-direction: column;
     justify-content: space-evenly;
     pointer-events: none;
+    opacity: 20%;
 }
 
 .track {
     width: max-content;
-    font: 800 clamp(4.5rem, 16vh, 11rem)/1 var(--display);
+    font: 800 clamp(0.5rem, 4vh, 2rem)/1 var(--display);
     letter-spacing: .03em;
     white-space: nowrap;
     color: rgb(134 54 92 / .45);
